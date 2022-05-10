@@ -4,6 +4,8 @@ LABEL stage=buildnode
 ADD acfunlive-ui /acfunlive-ui-src
 WORKDIR /acfunlive-ui-src
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
     apk update && \
     apk add yarn && \
@@ -19,7 +21,8 @@ WORKDIR /acfunlive-src
 
 ENV GO111MODULE=on \
     GOPROXY="https://goproxy.cn" \
-    CGO_ENABLED=0
+    CGO_ENABLED=0 \
+    GOFLAGS="-buildvcs=false"
 
 RUN go build
 
