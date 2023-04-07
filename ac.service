@@ -1,0 +1,24 @@
+[Unit]
+Description=
+
+After=network-online.target local-fs.target time-sync.target docker.service
+Wants=network-online.target local-fs.target time-sync.target docker.service
+
+[Service]
+LimitNOFILE=1048576
+LimitNPROC=1048576
+Type=simple
+User=root
+Group=root
+ExecStartPre=-/usr/bin/docker rm -f ac
+ExecStart=/usr/bin/docker run --name ac -d -v /root/ac/configDir:/acfunlive/config:z -v /root/ac/recordDir:/acfunlive/record:z -p 10.1.17.184:51880:51880 -p 10.1.17.184:51890:51890 -u `id -u`:`id -g` acfunlive:v7 -webui
+
+ExecStop=-/usr/bin/docker rm -f ac
+KillMode=none
+Restart=always
+RestartSec=10s
+TimeoutStartSec=120
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
