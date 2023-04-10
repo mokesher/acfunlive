@@ -11,24 +11,7 @@
     "record": true,
     "danmu": true,
     "keepOnline": false,
-    "bitrate": 0,
-    "directory": "",
-    "sendQQ": [],
-    "sendQQGroup": []
-  },
-  {
-    "uid": 8386374,
-    "name": "我是毛77",
-    "notify": {
-      "notifyOn": true,
-      "notifyOff": false,
-      "notifyRecord": false,
-      "notifyDanmu": false
-    },
-    "record": false,
-    "danmu": true,
-    "keepOnline": false,
-    "bitrate": 0,
+    "bitrate": 1000,
     "directory": "",
     "sendQQ": [],
     "sendQQGroup": []
