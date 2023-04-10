@@ -13,14 +13,14 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
     yarn install && \
     yarn generate
 
-FROM golang:1-alpine AS go_build
+FROM golang:1.20-alpine AS go_build
 LABEL stage=buildgo
 
 ADD . /acfunlive-src
 WORKDIR /acfunlive-src
 
 ENV GO111MODULE=on \
-    GOPROXY="https://goproxy.cn" \
+    GOPROXY="https://goproxy.cn,direct" \
     CGO_ENABLED=0 \
     GOFLAGS="-buildvcs=false"
 
@@ -51,3 +51,5 @@ COPY --from=go_build /acfunlive-src/acfunlive $BINFILE
 VOLUME $CONFIGDIR $RECORDDIR
 
 ENTRYPOINT ["/acfunlive/acfunlive", "-config", "/acfunlive/config", "-record", "/acfunlive/record"]
+
+#docker build -t acfunlive:v1 .
