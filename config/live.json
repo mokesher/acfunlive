@@ -1,0 +1,19 @@
+[
+  {
+    "uid": 646973,
+    "name": "军师姜伯约",
+    "notify": {
+      "notifyOn": true,
+      "notifyOff": false,
+      "notifyRecord": false,
+      "notifyDanmu": false
+    },
+    "record": true,
+    "danmu": true,
+    "keepOnline": false,
+    "bitrate": 1000,
+    "directory": "",
+    "sendQQ": [],
+    "sendQQGroup": []
+  }
+]
