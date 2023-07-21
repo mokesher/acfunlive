@@ -1,0 +1,18 @@
+{
+    "source": "flv",
+    "output": "mp4",
+    "webPort": 51880,
+    "directory": "",
+    "acfun": {
+        "account": "",
+        "password": ""
+    },
+    "autoKeepOnline": false,
+    "mirai": {
+        "adminQQ": 0,
+        "botQQ": 0,
+        "botQQPassword": "",
+        "sendQQ": [],
+        "sendQQGroup": []
+    }
+}
